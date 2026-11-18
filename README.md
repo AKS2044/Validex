@@ -12,6 +12,10 @@ dotnet add package Validex
 
 Or reference `src/Validex/Validex.csproj` from a project in this repository. The library depends only on `Microsoft.Extensions.DependencyInjection.Abstractions` for optional DI registration helpers.
 
+### Publishing a release
+
+Pushing a Git tag in `vMAJOR.MINOR.PATCH` format (for example, `v1.0.0`) runs the GitHub Actions workflow at `.github/workflows/publish.yml`. It tests the solution, packs the library using the tag as its package version, and publishes the package and symbols to NuGet.org. Configure a repository Actions secret named `NUGET_API_KEY` with a NuGet.org API key that has package push permissions before creating a release tag.
+
 For a console application using the built-in Microsoft container, add `Microsoft.Extensions.DependencyInjection` to the application as well; web applications already include a container integration through their host.
 
 ## Define a model and validator
